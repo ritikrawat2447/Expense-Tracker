@@ -20,17 +20,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import eu.tutorials.mywishlistapp.UI_Screens.WishItem
-import eu.tutorials.mywishlistapp.ViewModel.WishViewModel
-import eu.tutorials.mywishlistapp.data.Wish
+import eu.tutorials.mywishlistapp.UI_Screens.ExpenseItem
+import eu.tutorials.mywishlistapp.ViewModel.ExpenseViewModel
+import eu.tutorials.mywishlistapp.data.Expense
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun swipeToDismiss(
-    viewModel: WishViewModel,
-    wish: Wish,
-    onEdit: (Wish) -> Unit,
-    onDelete: (Wish) -> Unit
+    viewModel: ExpenseViewModel,
+    expense: Expense,
+    onEdit: (Expense) -> Unit,
+    onDelete: (Expense) -> Unit
 ) {
     val dismissState = rememberDismissState(
         confirmStateChange = {
@@ -67,8 +67,8 @@ fun swipeToDismiss(
         directions = setOf(DismissDirection.EndToStart),
         dismissThresholds = { FractionalThreshold(1f) },
         dismissContent = {
-            WishItem(wish = wish) {
-                onEdit(wish)
+            ExpenseItem(expense = expense) {
+                onEdit(expense)
             }
         }
     )

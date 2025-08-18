@@ -85,6 +85,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+
     // OkHttp for HTTP calls
     implementation("com.squareup.okhttp3:okhttp:5.1.0")
+
+    // Accompanist System UI Controller ( for status bar color )
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
 }

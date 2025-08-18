@@ -23,26 +23,26 @@ import eu.tutorials.mywishlistapp.Components.AppBarView
 import eu.tutorials.mywishlistapp.Components.floatingActionButton
 import eu.tutorials.mywishlistapp.Components.swipeToDismiss
 import eu.tutorials.mywishlistapp.Screen
-import eu.tutorials.mywishlistapp.ViewModel.WishViewModel
-import eu.tutorials.mywishlistapp.data.Wish
+import eu.tutorials.mywishlistapp.ViewModel.ExpenseViewModel
+import eu.tutorials.mywishlistapp.data.Expense
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun HomeView(
     navController: NavController,
-    viewModel: WishViewModel
+    viewModel: ExpenseViewModel
 ) {
 //    val context = LocalContext.current
     val scaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { AppBarView(title = "WishList") },
+        topBar = { AppBarView(title = "Expenses") },
         floatingActionButton = {
             floatingActionButton(navController)
         }
 
     ) {
-        val wishlist = viewModel.getAllWishes.collectAsState(initial = listOf())
+        val wishlist = viewModel.getAllTransactions.collectAsState(initial = listOf())
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -51,16 +51,16 @@ fun HomeView(
                     .fillMaxSize()
                     .padding(it)
             ) {
-                items(wishlist.value, key = { wish -> wish.id }) { wish ->
+                items(wishlist.value, key = { expense -> expense.id }) { expense ->
                     // UI component to delete item with a swipe
                     swipeToDismiss(
-                        viewModel, wish,
-                        onEdit = { wish ->
-                            val id = wish.id
+                        viewModel, expense,
+                        onEdit = { expense ->
+                            val id = expense.id
                             navController.navigate(Screen.AddScreen.route + "/$id")
                         },
-                        onDelete = { wish ->
-                            viewModel.deleteWish(wish) // your delete logic
+                        onDelete = { expense ->
+                            viewModel.deleteExpense(expense) // your delete logic
                         }
                     )
                 }
@@ -72,20 +72,20 @@ fun HomeView(
 
 
 @Composable
-fun WishItem(wish: Wish, onClick: () -> Unit) {
+fun ExpenseItem(expense: Expense, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 8.dp, start = 8.dp, end = 8.dp)
+            .padding(top = 12.dp, start = 8.dp, end = 8.dp)
             .clickable {
                 onClick()
             },
         elevation = 10.dp,
-        backgroundColor = Color.White
+        backgroundColor = Color.White,
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = wish.title, fontWeight = FontWeight.ExtraBold)
-            Text(text = wish.description)
+        Column(modifier = Modifier.padding(8.dp)) {
+            Text(text = expense.amount, fontWeight = FontWeight.ExtraBold)
+            Text(text = expense.category)
         }
     }
 }

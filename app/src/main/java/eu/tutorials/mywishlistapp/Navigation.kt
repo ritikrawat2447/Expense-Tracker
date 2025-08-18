@@ -6,12 +6,13 @@ import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import eu.tutorials.mywishlistapp.Components.statusBarColor
 import eu.tutorials.mywishlistapp.UI_Screens.AddEditDetailView
 import eu.tutorials.mywishlistapp.UI_Screens.HomeView
-import eu.tutorials.mywishlistapp.ViewModel.WishViewModel
+import eu.tutorials.mywishlistapp.ViewModel.ExpenseViewModel
 
 @Composable
-fun Navigation(viewModel: WishViewModel = viewModel(),
+fun Navigation(viewModel: ExpenseViewModel = viewModel(),
                navController: NavHostController = rememberNavController()
 ){
     NavHost(

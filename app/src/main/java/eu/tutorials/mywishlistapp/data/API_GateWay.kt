@@ -14,9 +14,15 @@ import java.io.IOException
 val client = OkHttpClient()
 fun apiGateway(){
     val jsonBody = JSONObject()
-    jsonBody.put("userId", "123")
-    jsonBody.put("action", "clicked_button")
-    jsonBody.put("timestamp", System.currentTimeMillis())
+    jsonBody.put("user_id","1234")
+    jsonBody.put("timestamp", "2025-08-14T17:12:45Z");
+    jsonBody.put("amount", 1299);
+    jsonBody.put("category", "Food");
+    jsonBody.put("payment_method", "card");
+    jsonBody.put("merchant_name", "Cafe Aroma");
+    jsonBody.put("tag","hangout");
+    jsonBody.put("source", "manual");
+
 
     val requestBody = jsonBody.toString().toRequestBody("application/json".toMediaType())
     val request = Request.Builder()
