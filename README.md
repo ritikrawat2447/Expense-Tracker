@@ -48,3 +48,18 @@ Before running this project, ensure you have:
 - Proper networking setup for secure communication between Android and AWS  
 
 ---
+
+## 📸 Screenshots
+
+
+<div style="display: flex;">
+  <img src="Screenshots/S3%20bucket.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/IAM%20Roles.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/AWS%20Lamda.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/APIs.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/AWS%20Glue%20Jobs.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/Crawlers.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/Amazon%20Glue%20Tables.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/Athena%20Queries.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+  <img src="Screenshots/CloudWatch%20logs.png" width="500" height="500" style="border: 5px solid #555; padding: 8px;">
+</div>
